@@ -28,7 +28,6 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       child: Column(
         children: [
           Row(
