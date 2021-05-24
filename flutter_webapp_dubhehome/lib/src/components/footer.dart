@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Fotter extends StatefulWidget {
-  @override
-  _FotterState createState() => _FotterState();
-}
-
-class _FotterState extends State<Fotter> {
+class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Placeholder(fallbackHeight: 200),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(7), color: Colors.grey.shade200),
+      //padding: EdgeInsets.all(3),
+      child: Text(
+        "Copyright 2021 i.nyoung All Rights Reserved.",
+        style: TextStyle(
+          fontSize: 10,
+        ),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

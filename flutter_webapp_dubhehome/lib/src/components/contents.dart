@@ -6,45 +6,46 @@ class Contents extends StatefulWidget {
 }
 
 class _ContentsState extends State<Contents> {
+  Widget menu(String munu, GestureTapCallback onTap) {
+    return InkWell(
+      mouseCursor: MaterialStateMouseCursor.clickable,
+      //마우스 호버했을때 배경색
+      // hoverColor: Colors.amber,
+      hoverColor: Colors.transparent,
+      //클릭했을때의 배경색
+      // splashColor: Colors.yellowAccent,
+      splashColor: Colors.transparent,
+      //클릭했을때의 배경색
+      highlightColor: Colors.transparent,
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Text(munu),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                
-                onPressed: () {},
-                child: Text(
-                  "회사소개",
-                  style: TextStyle(color: Colors.amber, fontSize: 12),
-                ),
+              Image.asset(
+                "assets/images/logo.png",
+                width: 80,
               ),
-              TextButton(
-                onPressed: () {},
-                child: Text("조직도"),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text("연혁"),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text("비젼"),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text("인증서"),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text("오시는길"),
+              Row(
+                children: [
+                  menu("홈", () {}),
+                  menu("블로그", () {}),
+                  menu("유튜브", () {}),
+                ],
               ),
             ],
-          ),
-          Container(),
+          )
         ],
       ),
     );
