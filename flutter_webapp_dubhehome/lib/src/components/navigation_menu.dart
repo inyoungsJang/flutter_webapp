@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_webapp_dubhehome/src/controller/screen_layout_controller.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NavigationMenu extends GetView<ScreenLayoutController> {
   ScreenSizeType screenSizeType;
@@ -24,6 +26,23 @@ class NavigationMenu extends GetView<ScreenLayoutController> {
     );
   }
 
+  Widget _menuGroup() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        menu("홈", () {
+          Get.toNamed("/");
+        }),
+        menu("GOOGLE", () {
+          launch("https://www.google.co.kr");
+        }),
+        menu("유튜브", () {
+          launch("https://youtube.com");
+        }),
+      ],
+    );
+  }
+
   Widget _mobileLayout() {
     return Container(
       child: Column(
@@ -35,14 +54,7 @@ class NavigationMenu extends GetView<ScreenLayoutController> {
           SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              menu("홈", () {}),
-              menu("블로그", () {}),
-              menu("유튜브", () {}),
-            ],
-          ),
+          _menuGroup(),
         ],
       ),
     );
@@ -59,13 +71,7 @@ class NavigationMenu extends GetView<ScreenLayoutController> {
                 "assets/images/logo.png",
                 width: 80,
               ),
-              Row(
-                children: [
-                  menu("홈", () {}),
-                  menu("블로그", () {}),
-                  menu("유튜브", () {}),
-                ],
-              ),
+              _menuGroup(),
             ],
           ),
         ],
@@ -86,28 +92,5 @@ class NavigationMenu extends GetView<ScreenLayoutController> {
         return _desktopLayout();
         break;
     }
-    // print(screenSizeType);
-    // return Container(
-    //   child: Column(
-    //     children: [
-    //       Row(
-    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //         children: [
-    //           Image.asset(
-    //             "assets/images/logo.png",
-    //             width: 80,
-    //           ),
-    //           Row(
-    //             children: [
-    //               menu("홈", () {}),
-    //               menu("블로그", () {}),
-    //               menu("유튜브", () {}),
-    //             ],
-    //           ),
-    //         ],
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
