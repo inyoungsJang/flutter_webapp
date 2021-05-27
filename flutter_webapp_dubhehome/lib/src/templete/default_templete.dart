@@ -88,7 +88,7 @@ class DefaultTemplate extends StatelessWidget {
           // 이벤트 상태 감지함
           Obx(() {
             //스크린타입이 모바일경우 hasDrawer이 true가 됌으로 _layout메서드
-            //그외는 break문이 적용되지않아 default로 이동하여 false값을 가진채 _layout메서드에 도달
+            //그외는 break문이 적용되지않아 default로 이동하여 false값을 가진채 _layout메서드에 도달하여
             switch (ScreenLayoutController.to.type.value) {
               case ScreenSizeType.MOBILE:
                 return _layout(hasDrawer: true);
